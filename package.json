@@ -1,6 +1,6 @@
 {
   "name": "node-sense-hat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node library for using the sense-hat on the raspberry pi",
   "main": "index.js",
   "repository": {
@@ -14,7 +14,6 @@
   },
   "homepage": "https://github.com/resin-io-playground/node-sense-hat#readme",
   "dependencies": {
-    "hts221": "0.0.1",
     "nodeimu": "^2.1.9",
     "sense-hat-led": "^1.0.1",
     "sense-joystick": "0.0.2"
