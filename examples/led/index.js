@@ -8,7 +8,7 @@ const drawScreen = () => {
 	y = 0;
 	while (y < 8) {
 		while (x < 8) {
-			senseHat.Leds.setPixel([x, y], [_.random(0, 255), _.random(0, 255), _.random(0, 255)]);
+			senseHat.Leds.setPixel(x, y, [_.random(0, 255), _.random(0, 255), _.random(0, 255)]);
 			x += 1;
 		}
 		x = 0;
