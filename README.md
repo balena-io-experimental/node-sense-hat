@@ -15,13 +15,8 @@ The joystick library used is the
 
 ## IMU
 
-The IMU library used is the [nodeimu](https://github.com/rupnikj/nodeimu)
+The Inertial Measurement Unit library used is the [nodeimu](https://github.com/rupnikj/nodeimu)
 module.
-
-## Barometric sensor
-
-The barometric sensor is the
-[hts221](https://github.com/resin-io-playground/hts221) module.
 
 ## Interface
 
