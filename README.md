@@ -25,5 +25,4 @@ These modules are exposed by the following entries:
 Joystick: joystick library
 Leds: LED library
 Imu: nodeimu library
-Barometric: barometric library
 ```
