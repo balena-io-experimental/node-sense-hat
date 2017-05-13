@@ -6,12 +6,12 @@ them in a single module.
 ## Leds
 
 The LED library is the
-[sense-hat-led](https://github.com/aonghusonia/sense-hat-led) module. [Example](https://github.com/resin-io-playground/node-sense-hat/tree/master/examples/led)
+[sense-hat-led](https://github.com/aonghusonia/sense-hat-led) module. [Example](https://github.com/resin-io-playground/sense-snake)
 
 ## Joystick
 
 The joystick library used is the
-[sense-joystick](https://github.com/resin-io-playground/sense-joystick) module. [Example](https://github.com/resin-io-playground/node-sense-hat/tree/master/examples/joystick)
+[sense-joystick](https://github.com/resin-io-playground/sense-joystick) module. [Example](https://github.com/resin-io-playground/sense-snake)
 
 ## IMU
 

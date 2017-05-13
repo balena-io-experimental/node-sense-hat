@@ -11,10 +11,11 @@ const drawScreen = () => {
 			senseHat.Leds.setPixel([x, y], [_.random(0, 255), _.random(0, 255), _.random(0, 255)]);
 			x += 1;
 		}
+		x = 0;
 		y += 1;
 	}
 
 };
 
 // Refresh the screen every 2 seconds
-setTimeout(drawScreen, 2000);
+setInterval(drawScreen, 2000);
