@@ -16,6 +16,6 @@
   "dependencies": {
     "nodeimu": "^2.1.9",
     "sense-hat-led": "^1.0.1",
-    "sense-joystick": "0.0.2"
+    "sense-joystick": "^0.0.2"
   }
 }
