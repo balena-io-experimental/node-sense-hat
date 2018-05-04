@@ -20,60 +20,59 @@ the documentation for the library above for the entire API documentation.
 
 ```javascript
 // Using the standalone hw-specific library
-matrix = require('sense-hat-led')
+const matrix = require('sense-hat-led');
 // Using this library
-matrix = require('node-sense-hat').Leds
+const matrix = require('node-sense-hat').Leds;
 
-x = 3
-y = 3
-red = [255, 0, 0]
+const x = 3;
+const y = 3;
+const red = [255, 0, 0];
 
 // Set a single pixel
-matrix.setPixel(x, y, red)
+matrix.setPixel(x, y, red);
 ```
 
 ### Switching off an LED
 
 ```javascript
-matrix = require('node-sense-hat').Leds
+const matrix = require('node-sense-hat').Leds;
 
-x = 3
-y = 3
-off = [0, 0, 0]
+const x = 3;
+const y = 3;
+const off = [0, 0, 0];
 
-senseLEDs.setPixel(x, y, off)
-
+matrix.setPixel(x, y, off);
 ```
 
 ### Filling the matrix
 
 ```javascript
-matrix = require('node-sense-hat').Leds
+const matrix = require('node-sense-hat').Leds;
 
-O = [0, 0, 0]
-X = [255, 0, 0]
+const O = [0, 0, 0];
+const X = [255, 0, 0];
 
-cross = [
-	X, O, O, O, O, O, O, X
-	O, X, O, O, O, O, X, O
-	O, O, X, O, O, X, O, O
-	O, O, O, X, X, O, O, O
-	O, O, O, X, X, O, O, O
-	O, O, X, O, O, X, O, O
-	O, X, O, O, O, O, X, O
-	X, O, O, O, O, O, O, X
-]
+const cross = [
+	X, O, O, O, O, O, O, X,
+	O, X, O, O, O, O, X, O,
+	O, O, X, O, O, X, O, O,
+	O, O, O, X, X, O, O, O,
+	O, O, O, X, X, O, O, O,
+	O, O, X, O, O, X, O, O,
+	O, X, O, O, O, O, X, O,
+	X, O, O, O, O, O, O, X,
+];
 
-matrix.setPixels(cross)
+matrix.setPixels(cross);
 
 // To fill with a single color instead
-matrix.clear([127, 0, 0])
+matrix.clear([127, 0, 0]);
 ```
 
 ### Clearing the matrix
 
 ```javascript
-matrix = require('node-sense-hat').Leds
+const matrix = require('node-sense-hat').Leds
 
 matrix.clear()
 ```
@@ -98,33 +97,29 @@ handle to the device. Behind the scenes this involves finding the correct Linux
 the `getJoystick` function returns a promise.
 
 ```javascript
-JoystickLib = require('node-sense-hat').Joystick
+const JoystickLib = require("node-sense-hat").Joystick;
 
-JoystickLib.getJoystick()
-.then((joystick) => {
-	// We now have a handle the joystick hardware
-})
-
+JoystickLib.getJoystick().then(joystick => {
+  // We now have a handle the joystick hardware
+});
 ```
 
 ### Registering for events
 
 ```javascript
-JoystickLib = require('node-sense-hat').Joystick
+const JoystickLib = require("node-sense-hat").Joystick;
 
-JoystickLib.getJoystick()
-.then((joystick) => {
-	joystick.on('press', (direction) => {
-		console.log('Joystick pressed in ' + direction + ' direction')
-	})
-	joystick.on('release', (direction) => {
-		console.log('Joystick released in ' + direction + ' direction')
-	})
-	joystick.on('hold', (direction) => {
-		console.log('The joystick is being held in the ' + direction + ' direction')
-	})
-})
-
+JoystickLib.getJoystick().then(joystick => {
+  joystick.on("press", direction => {
+    console.log("Joystick pressed in " + direction + " direction");
+  });
+  joystick.on("release", direction => {
+    console.log("Joystick released in " + direction + " direction");
+  });
+  joystick.on("hold", direction => {
+    console.log("The joystick is being held in the " + direction + " direction");
+  });
+});
 ```
 
 ## IMU
@@ -137,26 +132,25 @@ above. We've provided some snippets below to detail the simple cases.
 
 ### Data collection
 ```javascript
-imu = require('node-sense-hat').Imu
+const imu = require("node-sense-hat").Imu;
 
-IMU = new imu.IMU()
+const IMU = new imu.IMU();
 
 IMU.getValue((err, data) => {
-	if(err != null) {
-		console.error('Could not read sensor data: ', err)
-		return
-	}
+  if (err !== null) {
+    console.error("Could not read sensor data: ", err);
+    return;
+  }
 
-	console.log('Accelleration is: ', JSON.stringify(data.accel, null, '  '))
-	console.log('Gyroscope is: ', JSON.stringify(data.gyro, null, '  '))
-	console.log('Compass is: ', JSON.stringify(data.compass, null,  '  '))
-	console.log('Fusion data is: ', JSON.stringify(data.fusionPose, null, '  '))
+  console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
+  console.log("Gyroscope is: ", JSON.stringify(data.gyro, null, "  "));
+  console.log("Compass is: ", JSON.stringify(data.compass, null, "  "));
+  console.log("Fusion data is: ", JSON.stringify(data.fusionPose, null, "  "));
 
-	console.log('Temp is: ', data.temperature)
-	console.log('Pressure is: ', data.pressure)
-	console.log('Humidity is: ', data.humidity)
-
-})
+  console.log("Temp is: ", data.temperature);
+  console.log("Pressure is: ", data.pressure);
+  console.log("Humidity is: ", data.humidity);
+});
 ```
 
 ### Tilt heading correction
@@ -164,43 +158,42 @@ IMU.getValue((err, data) => {
 Getting the tilt correction is more involved again:
 
 ```javascript
-imu = require('node-sense-hat').Imu
+const imu = require("node-sense-hat").Imu;
 
-IMU = new imu.IMU()
+const IMU = new imu.IMU();
 
-var headingCorrection = function(heading, offset) {
-  if (typeof offset ==='undefined')
-      offset = 0;
-
+const headingCorrection = (heading, offset = 0) => {
   // Once you have your heading, you must then add your 'Declination Angle', which is the 'Error' of the magnetic field in your location.
   // Find yours here: http://www.magnetic-declination.com/
-  var declinationAngle = 0.03106686;
+  const declinationAngle = 0.03106686;
 
   heading += declinationAngle + offset;
 
   // Correct for when signs are reversed.
-  if (heading < 0)
+  if (heading < 0) {
     heading += 2 * Math.PI;
+  }
 
   // Check for wrap due to addition of declination.
-  if (heading > 2 * Math.PI)
+  if (heading > 2 * Math.PI) {
     heading -= 2 * Math.PI;
+  }
 
   return heading;
-}
+};
 
-var headingToDegree = function(heading) {
+const headingToDegree = heading => {
   // Convert radians to degrees for readability.
   return heading * 180 / Math.PI;
-}
+};
 
-IMU.getValue((err, dat) => {
-	if(err != null) {
-		console.error('Could not read data: ', err)
-	}
+IMU.getValue((err, data) => {
+  if (err !== null) {
+    console.error("Could not read data: ", err);
+  }
 
-	console.log('Tilt heading is: ', headingToDegree(headingCorrection(data.tiltHeading, Math.PI / 2)))
-})
+  console.log("Tilt heading is: ", headingToDegree(headingCorrection(data.tiltHeading, Math.PI / 2)));
+});
 ```
 
 ## Interface
