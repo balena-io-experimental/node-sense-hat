@@ -1,6 +1,6 @@
 {
   "name": "node-sense-hat",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A node library for using the sense-hat on the raspberry pi",
   "main": "index.js",
   "repository": {
