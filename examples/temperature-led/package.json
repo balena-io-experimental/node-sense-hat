@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "node-sense-hat": "^0.0.2"
+    "nodeimu": "^2.1.9",
+    "sense-hat-led": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
