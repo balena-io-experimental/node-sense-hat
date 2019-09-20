@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/resin-io-playground/node-sense-hat#readme",
   "dependencies": {
-    "nodeimu": "^2.1.9",
-    "sense-hat-led": "^1.0.1",
-    "sense-joystick": "^0.0.2"
+    "nodeimu": "github:balena-io-modules/nodeimu#bba29bdee58b5c26800db85fe36efdcdd777b385",
+    "sense-hat-led": "github:balena-io-modules/sense-hat-led#c34024f1bf999d1f8382825c831b1dc86718f952",
+    "sense-joystick": "0.0.3"
   }
 }
